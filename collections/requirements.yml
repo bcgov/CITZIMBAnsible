@@ -1,0 +1,19 @@
+---
+collections:
+
+# REQUIRED
+
+  - name: servicenow.itsm       # https://galaxy.ansible.com/servicenow/itsm
+  
+# REFERENCE / POSSIBLY USEFUL
+
+## GENERAL
+
+#  - name: community.general    # https://galaxy.ansible.com/community/general
+
+## OS
+
+#  - name: ansible.windows      # https://docs.ansible.com/ansible/latest/collections/ansible/windows/index.html
+#  - name: ansible.posix        # https://docs.ansible.com/ansible/latest/collections/ansible/posix/index.html
+  - name: community.windows    # https://galaxy.ansible.com/community/windows
+...

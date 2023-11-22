@@ -1,0 +1,46 @@
+---
+# NAME: base_dynamic_inventory_bcgov_citz_imb_windows_now.yml
+# QUERY: Install Status=Installed, Automation Services=true, Automation Services tenant=CITZ-IMB,Operating system Name contains windows
+# QUERY URL: https://thehub.service-now.com/cmdb_ci_server_list.do?sysparm_query=install_status%3D1%5Eu_automation_services%3Dtrue%5Eu_automation_services_tenant%3D778396121bf1f5143756437cdc4bcba6%5Eu_operating_systemLIKEwindows&sysparm_view=
+# NOTE: append `ansible_host` value to hostvars for each result record
+# REF: https://github.com/ansible-collections/servicenow.itsm/blob/main/docs/servicenow.itsm.now_inventory.rst
+# REF: https://docs.ansible.com/ansible/latest/plugins/inventory.html
+plugin: servicenow.itsm.now
+table: cmdb_ci_server
+sysparm_query: 'install_status=1^u_automation_services=true^u_automation_services_tenant=778396121bf1f5143756437cdc4bcba6^u_operating_systemLIKEwindows'
+inventory_hostname_source: u_client_ci_name
+columns:
+  - name
+  - ip_address
+  - location
+  - location.city
+  - model_id.name
+  - used_for
+  - support_group
+  - supported_by
+  - u_operating_system
+  - os_version
+  - u_customer_contact
+  - u_on_call_group
+  - u_rack_location
+  - u_supported_by_secondary
+  - u_technical_contact
+  - u_primary_node_name
+  - u_pci_dss_compliance
+  - u_patch_group
+  - u_as_uplift
+  - u_room
+  - asset.x_fru_foundation_as_client_organization.u_org_code
+keyed_groups:
+  - key: location | regex_replace(' ','_')
+    prefix: DC
+  - key: used_for | regex_replace('Development and Test','Development') | regex_replace('Testing','Test')
+    prefix: Environment
+  - key: u_operating_system | regex_replace('red hat enterprise server','RHEL') | regex_replace('\.| ','_')
+    separator: ""
+  - key: city
+    prefix: CITY
+leading_separator: "no"
+compose:
+  ansible_host: u_primary_node_name
+...
