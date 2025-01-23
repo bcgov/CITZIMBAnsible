@@ -1,0 +1,8 @@
+---
+- hosts: vehicle.idir.bcgov
+
+  tasks: 
+
+   - name: Run ps1
+     win_shell: E:\\temp\\test.ps1
+     
