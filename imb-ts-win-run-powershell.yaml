@@ -5,8 +5,8 @@
 
    - name: Run ps1
      win_shell: |
-    $value = Test-Path -Path e:\temp
-    if ($value) {
-        New-Item e:\temp\test.txt -ItemType File
-    }
+          $value = Test-Path -Path e:\temp
+          if ($value) {
+              New-Item e:\temp\test.txt -ItemType File
+          }
      
