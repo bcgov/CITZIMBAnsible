@@ -3,7 +3,7 @@
 
   tasks: 
 
-   - name: Run ps1
+   - name: Run ps1 ver 1
      win_shell: |
           $value = Test-Path -Path e:\temp
           if ($value) {
