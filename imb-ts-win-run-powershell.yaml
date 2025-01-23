@@ -4,5 +4,9 @@
   tasks: 
 
    - name: Run ps1
-     win_shell: E:\\temp\\test.ps1
+     win_shell: |
+    $value = Test-Path -Path e:\temp
+    if ($value) {
+        New-Item e:\temp\test.txt -ItemType File
+    }
      
