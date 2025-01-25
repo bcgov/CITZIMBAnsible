@@ -2,11 +2,7 @@
 - hosts: panga.idir.bcgov
 
   tasks: 
-
-   - name: Run ps1 ver 1
-     win_shell: |
-          $value = Test-Path -Path e:\temp
-          if ($value) {
-              New-Item e:\temp\test.txt -ItemType File
-          }
+  - name: Run remote PowerShell Script
+    win_command: powershell.exe -ExecutionPolicy ByPass -File E:/Tidal/AD_Contacts_Export/CbreExpAnsible.ps1
+      
      
