@@ -2,11 +2,11 @@
 - hosts: vehicle.idir.bcgov
 
   tasks: 
-
-   - name: Check my user name
-        ansible.windows.win_whoami
-        become: True
-
+ 
+   - name: Check my username
+     ansible.windows.win_whoami:
+     become: true
+     
    - name: Run ps1 ver 1
      win_shell: |
           $value = Test-Path -Path e:\temp
