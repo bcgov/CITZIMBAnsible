@@ -23,9 +23,6 @@
      set_fact:
         login_user: "{{ whoami.stdout }}"
    - user
-     name: "username"
-     register: user_data
-   - user
      name: "{{ ansible_user }}"
      register: user_data
 
