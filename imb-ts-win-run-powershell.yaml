@@ -4,7 +4,18 @@
   tasks: 
     
    - debug: var=username_on_the_host
+   
+   - win_command: whomai /all
+   
+   - win_whoami:
 
+   - win_command: whomai /all
+     become: yes
+     become_method: runas
+     vars:
+      ansible_become_user: '{{ ansible_user }}'
+      ansible_become_pass: '{{ ansible_password }}'
+      
    - name: Run whoami without become.
      command: whoami
      changed_when: false
