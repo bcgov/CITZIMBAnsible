@@ -2,15 +2,7 @@
 - hosts: vehicle.idir.bcgov
 
   tasks: 
-  
-   - name: Check my username
-     win_whoami:
-
-   - name: check user differently
-     become: false
-     local_action: command whoami
-     register: username_on_the_host
-   
+    
    - debug: var=username_on_the_host
 
    - name: Run whoami without become.
