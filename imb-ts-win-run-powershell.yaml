@@ -28,8 +28,8 @@
 
    - name: Return GIDs for all groups
      community.general.ldap_search:
-     dn: "ou=VPN Groups,ou=Citizens Services,dc=idir.bcgov,dc=bcgov"
-     scope: "onelevel"
-     attrs:
-     - "gidNumber"
-       register: ldap_group_gids
+       dn: "ou=VPN Groups,ou=Citizens Services,dc=idir.bcgov,dc=bcgov"
+       scope: "onelevel"
+       attrs:
+       - "gidNumber"
+     register: ldap_group_gids
