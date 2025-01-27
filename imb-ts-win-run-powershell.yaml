@@ -12,8 +12,16 @@
      register: whoami
    
    - name: find whoami based on credentials supplied
-     win_whoami:
+     command: win_whoami
+     become: true
      register: whoami_base
+
+   - name: find whoami based on become
+     command: win_whoami
+     become: true
+     become_user: administrator
+     register: whoami_base
+
 
    - name: output base user
      debug:
