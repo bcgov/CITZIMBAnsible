@@ -5,6 +5,11 @@
   
    - name: Check my username
      win_whoami:
+
+   - name: check user differently
+     ansible.windows.win_whoami:
+
+    
   
      
   
