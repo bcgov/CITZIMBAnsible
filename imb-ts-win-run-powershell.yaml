@@ -27,7 +27,4 @@
      debug:
        msg: "{{ whoami_base.account.account_name }}"
        
-   - name: Return all entries within the groups organizational unit.
-     community.general.ldap_search:
-     dn: "ou=VPN Groups,ou=Citizens Services,dc=idir.bcgov,dc=bcgov"
-     register: ldap_groups
+  
