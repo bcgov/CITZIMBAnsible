@@ -2,9 +2,9 @@
 - hosts: vehicle.idir.bcgov
 
   tasks: 
- 
+  
    - name: Check my username
      ansible.windows.win_whoami:
-     become: true
+  
      
   
