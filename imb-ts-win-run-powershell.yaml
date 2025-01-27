@@ -25,8 +25,8 @@
      register: whoami_base
 
    - name: output base user
-      debug:
-        msg: "{{ whoami_base.account.account_name }}"
+     debug:
+       msg: "{{ whoami_base.account.account_name }}"
   
      
   
