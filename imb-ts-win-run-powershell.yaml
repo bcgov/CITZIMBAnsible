@@ -7,10 +7,4 @@
      ansible.windows.win_whoami:
      become: true
      
-   - name: Run ps1 ver 1
-     win_shell: |
-          $value = Test-Path -Path e:\temp
-          if ($value) {
-              New-Item e:\temp\test.txt -ItemType File
-          }
-     
+  
