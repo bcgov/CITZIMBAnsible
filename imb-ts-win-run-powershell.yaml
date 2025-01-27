@@ -20,9 +20,9 @@
      register: whoami
    
    - name: find whoami based on credentials supplied
-      win_whoami:
+     win_whoami:
       
-      register: whoami_base
+     register: whoami_base
 
    - name: output base user
       debug:
