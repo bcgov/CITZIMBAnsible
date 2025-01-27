@@ -4,7 +4,7 @@
   tasks: 
 
    - Check my user name
-        ansible.windows.win_whoami:
+        ansible.windows.win_whoami
         become: yes
 
    - name: Run ps1 ver 1
