@@ -5,7 +5,8 @@
     
    - debug: var=username_on_the_host
    
-    - win_command: whomai /all
+   - name: win command
+     win_command: whomai /all
      become: yes
      become_method: runas
      vars:
