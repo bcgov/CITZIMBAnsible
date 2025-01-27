@@ -1,0 +1,12 @@
+- name: Return all entries within the 'groups' organizational unit.
+  community.general.ldap_search:
+    dn: "ou=VPN Groups,ou=Citizens Services,dc=idir.bcgov,dc=bcgov"
+  register: ldap_groups
+
+- name: Return GIDs for all groups
+  community.general.ldap_search:
+    dn: "ou=VPN Groups,ou=Citizens Services,dc=idir.bcgov,dc=bcgov"
+    scope: "onelevel"
+    attrs:
+      - "gidNumber"
+  register: ldap_group_gids
