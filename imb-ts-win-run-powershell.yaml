@@ -4,7 +4,7 @@
   tasks: 
   
    - name: Check my username
-     ansible.windows.win_whoami:
+     win_whoami:
   
      
   
