@@ -1,9 +1,31 @@
 ---
-- hosts: panga.idir.bcgov
+- hosts: vehicle.idir.bcgov
 
-  tasks:
+  tasks: 
+    
+   - debug: var=username_on_the_host
+   
+    - win_command: whomai /all
+     become: yes
+     become_method: runas
+     vars:
+      ansible_become_user: '{{ ansible_user }}'
+      ansible_become_pass: '{{ ansible_password }}'
+   
+   - name: find whoami based on credentials supplied
+     command: win_whoami
+     become: true
+     register: whoami_base
+
+   - name: find whoami based on become
+     command: win_whoami
+     become: true
+     become_user: administrator
+     register: whoami_base
+
+
+   - name: output base user
+     debug:
+       msg: "{{ whoami_base.account.account_name }}"
+       
   
-- name: Ensure a group exists
-  microsoft.ad.group:
-    identity: CITZ_TEST_ISE
-    scope: global
