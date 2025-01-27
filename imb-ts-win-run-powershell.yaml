@@ -5,7 +5,7 @@
 
    - name: Check my user name
         ansible.windows.win_whoami
-        become: yes
+        become: Yes
 
    - name: Run ps1 ver 1
      win_shell: |
