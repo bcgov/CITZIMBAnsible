@@ -4,7 +4,6 @@
   tasks: 
 
   - name: test whoami with become
-    win_whoami:
     ansible_become_method: runas
     become_user: Administrator
 
