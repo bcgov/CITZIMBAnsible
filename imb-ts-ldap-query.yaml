@@ -8,6 +8,7 @@
      win_shell: mkdir c:\tmp\gogo1
      become: yes
      become_user: pjbaker_a
+     become_method: runas
      become_flags: logon_type=interactive logon_flags=with_profile
      vars:
        ansible_become_pass: $Paisley160989
