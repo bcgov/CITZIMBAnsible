@@ -5,6 +5,6 @@
 
   - name: test whoami with become
     win_whoami:
-    become_method: runas
+    ansible_become_method: runas
     become_user: Administrator
 
