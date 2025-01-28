@@ -11,7 +11,7 @@
      become_user: PJBAKER_A@gov.bc.ca
      become_flags: logon_type=interactive logon_flags=with_profile
      vars:
-       ansible_become_pass: $Paisley160989
+       ansible_become_pass: $P
     
    
   
