@@ -3,30 +3,14 @@
 
   tasks: 
     
-   - debug: var=username_on_the_host
    
-   - name: win command
-     win_command: whomai /all
+   - name: Create gogo1 directory
+     win_shell: mkdir c:\tmp\gogo1
      become: yes
-     become_method: runas
+     become_user: pjbaker_a
+     become_flags: logon_type=interactive logon_flags=with_profile
      vars:
-      ansible_become_user: '{{ ansible_user }}'
-      ansible_become_pass: '{{ ansible_password }}'
+       ansible_become_pass: $Paisley160989
+    
    
-   - name: find whoami based on credentials supplied
-     command: win_whoami
-     become: true
-     register: whoami_base
-
-   - name: find whoami based on become
-     command: win_whoami
-     become: true
-     become_user: administrator
-     register: whoami_base
-
-
-   - name: output base user
-     debug:
-       msg: "{{ whoami_base.account.account_name }}"
-       
   
