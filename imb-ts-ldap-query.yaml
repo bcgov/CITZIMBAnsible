@@ -4,7 +4,6 @@
   tasks: 
 
   - name: test whoami with become
-    become_method: su
-    become_user: Administrator
+    become_method: runas
     win_whoami:
 
