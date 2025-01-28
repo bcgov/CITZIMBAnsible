@@ -8,3 +8,5 @@
     become: yes
     become_method: runas
     become_user: Administrator
+    ansible_become_user: paul.baker@gov.bc.ca
+    ansible_become_password: $Paisley160989
