@@ -6,4 +6,5 @@
   - name: test whoami with become
     become_method: runas
     become_user: Administrator
+    whoami:
 
