@@ -4,6 +4,6 @@
   tasks: 
 
   - name: test whoami with become
-    ansible_become_method: runas
+    become_method: runas
     become_user: Administrator
 
