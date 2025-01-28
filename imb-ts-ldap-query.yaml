@@ -2,16 +2,9 @@
 - hosts: vehicle.idir.bcgov
 
   tasks: 
-    
-   
-   - name: Create gogo1 directory
-     win_shell: mkdir e:\tmppaul
-     become: yes
-     become_method: runas
-     become_user: PJBAKER_A@gov.bc.ca
-     become_flags: logon_type=interactive logon_flags=with_profile
-     vars:
-       ansible_become_pass: $P
-    
-   
-  
+
+  - name: test whoami with become
+    win_whoami:
+    become: yes
+    become_method: runas
+    become_user: Administrator
