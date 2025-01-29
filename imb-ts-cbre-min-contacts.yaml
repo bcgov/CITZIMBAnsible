@@ -4,5 +4,5 @@
   tasks: 
   - name: Run remote PowerShell Script
     win_shell: powershell.exe -ExecutionPolicy ByPass -File E:/Tidal/AD_Contacts_Export/CbreExpAnsible.ps1
-      
+    register: command_output
      
