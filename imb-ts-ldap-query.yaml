@@ -7,8 +7,8 @@
     hosts: windows_all
     tasks:
      - name: check DNS
-        win_shell: |
+       win_shell: |
           Get-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter|where Status -eq "Up").ifindex -ErrorAction SilentlyContinue
-        register: command_output
+       register: command_output
      - name: command output
           ansible.builtin.debug:
