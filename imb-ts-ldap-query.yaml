@@ -1,9 +1,14 @@
 ---
 - hosts: vehicle.idir.bcgov
 
-  tasks: 
+tasks: 
 
-  - name: test whoami with become
-    become_method: runas
-    win_whoami:
-
+- name: win_powershell_exec
+  hosts: windows_all
+  tasks:
+    - name: check DNS
+      win_shell: |
+        Get-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter|where Status -eq "Up").ifindex -ErrorAction SilentlyContinue
+      register: command_output
+    - name: command output
+      ansible.builtin.debug:
