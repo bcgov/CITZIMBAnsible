@@ -3,8 +3,7 @@
 
   tasks: 
   - name: check DNS
-    win_shell: |
-        Get-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter|where Status -eq "Up").ifindex -ErrorAction SilentlyContinue
+    win_whoami:
     register: command_output
   - name: command output
     ansible.builtin.debug:
