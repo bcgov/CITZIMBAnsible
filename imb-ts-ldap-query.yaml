@@ -11,4 +11,4 @@
           Get-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter|where Status -eq "Up").ifindex -ErrorAction SilentlyContinue
        register: command_output
      - name: command output
-          ansible.builtin.debug:
+       ansible.builtin.debug:
