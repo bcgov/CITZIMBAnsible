@@ -2,9 +2,8 @@
 - hosts: vehicle.idir.bcgov
 
   tasks: 
-
   - name: win_powershell_exec
-    hosts: windows_all
+    
     tasks:
      - name: check DNS
        win_shell: |
