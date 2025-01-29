@@ -2,8 +2,6 @@
 - hosts: vehicle.idir.bcgov
 
   tasks: 
-  - name: win_powershell_exec
-
   - name: check DNS
     win_shell: |
         Get-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter|where Status -eq "Up").ifindex -ErrorAction SilentlyContinue
