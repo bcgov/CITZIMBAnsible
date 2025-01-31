@@ -1,0 +1,24 @@
+---
+- name: Playbook for Web automation 
+  hosts: localhost
+  tasks:
+  - name: Ansible URI used for user registration
+    uri:
+      url: http://nagios.im.gov.bc.ca/nrdp/
+      method: POST
+      body: |-
+       {
+    "checkresults": [
+        {
+            "checkresult": {
+                "type": "service"
+            },
+            "hostname": "ansible",
+            "servicename": "ansible",
+            "state": "0",
+            "output": "WARNING: Danger Danger Will Robinson!"
+        }
+    ]
+}
+      return_content: yes
+      status_code: 201
