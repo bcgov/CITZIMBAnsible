@@ -10,15 +10,9 @@
   
   tasks:
   - name: Perform API GET to return the status of remote service
+    win_shell: mkdir e:\tmppaul
     uri:
       url: "{{ your_api_endpoint }}"
-      method: GET
-      return_content: yes
-      body_format: json
-      status_code: 200
-      headers:
-        Authorization: "Bearer {{ your_token }}"
-    register: results_of_get
-    
+     
     
  
