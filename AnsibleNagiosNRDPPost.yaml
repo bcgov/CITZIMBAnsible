@@ -8,11 +8,7 @@
     your_incoming_webhook: "http://nagios.im.gov.bc.ca/nrdp/"
     your_token: "mPsNf7ANZfgW"
   
-  tasks:
-  - name: Perform API GET to return the status of remote service
-    win_shell: mkdir e:\tmppaul
-    uri:
-      url: "{{ your_api_endpoint }}"
+ 
      
     
  
