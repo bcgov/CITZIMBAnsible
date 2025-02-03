@@ -18,7 +18,7 @@
       headers:
         Authorization: "Bearer {{ mPsNf7ANZfgW }}"
     register: results_of_get
-    no_log: True
+    
     
   - name: Read the return data and POST to webhook if anything other than Opeartional is found in Status
     uri:
