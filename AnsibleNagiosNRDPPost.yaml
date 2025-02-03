@@ -4,7 +4,7 @@
   tasks:
   - name: Ansible URI used for user registration
     uri:
-      url: "{http://nagios.im.gov.bc.ca/nrdp/"}
+      url: http://nagios.im.gov.bc.ca/nrdp/
       method: POST
       body_format: json
       body: '{
