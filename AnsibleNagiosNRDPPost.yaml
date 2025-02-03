@@ -1,6 +1,6 @@
 ---
 - name: GET_and_POST
-  hosts: vehicle
+  hosts: localhost
   gather_facts: false
   any_errors_fatal: true
   vars:
