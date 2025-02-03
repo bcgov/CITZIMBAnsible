@@ -1,22 +1,31 @@
 ---
-- name: Playbook for Web automation 
+- name: GET_and_POST
   hosts: vehicle
+  gather_facts: false
+  any_errors_fatal: true
+  vars:
+    your_api_endpoint: "http://nagios.im.gov.bc.ca/nrdp/"
+    your_incoming_webhook: "http://nagios.im.gov.bc.ca/nrdp/"
+  
   tasks:
-  - name: Ansible URI used for user registration
+  - name: Perform API GET to return the status of remote service
     uri:
-      url: http://nagios.im.gov.bc.ca/nrdp/
-      method: POST
-      body_format: json
-      body: '{
-              "checkresults":               
-              {
-                "checkresult": {
-                "type": "service"
-                 },
-              "hostname": "ansible",
-              "servicename": "ansible",
-              "state": "0",
-              "output": "WARNING: Danger Danger Will Robinson!"
-             }
+      url: "{{ your_api_endpoint }}"
+      method: GET
       return_content: yes
-      status_code: 201
+      body_format: json
+      status_code: 200
+      headers:
+        Authorization: "Bearer {{ mPsNf7ANZfgW }}"
+    register: results_of_get
+    no_log: True
+    
+  - name: Read the return data and POST to webhook if anything other than Opeartional is found in Status
+    uri:
+      url: "{{ your_incoming_webhook }}"
+      method: POST
+      return_content: yes
+      body: '{"@checkresults":""@checkresult"","@type":"service","hostname":"ansible","servicename":"ansible","state":"1","output":"WARNING" Danger Will Robinson"}'
+      body_format: json
+    when: 
+      - results_of_get.json.value[0].Status != 'Operational'
