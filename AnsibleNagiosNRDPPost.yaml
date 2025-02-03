@@ -26,7 +26,6 @@
       url: "{{ your_incoming_webhook }}"
       method: POST
       return_content: yes
-      body: '{"@checkresults":""@checkresult"","@type":"service","hostname":"ansible","servicename":"ansible","state":"1","output":"WARNING" Danger Will Robinson"}'
+      body: '{"@checkresults":""@checkresult"","@type":"service","hostname":"ansible","servicename":"ansible","state":"1","output":"WARNING Danger Will Robinson"}'
       body_format: json
-    when: 
-      - results_of_get.json.value[0].Status != 'Operational'
+   
