@@ -1,6 +1,6 @@
 ---
 - name: Playbook for Web automation 
-  hosts: localhost
+  hosts: vehicle
   tasks:
   - name: Ansible URI used for user registration
     uri:
