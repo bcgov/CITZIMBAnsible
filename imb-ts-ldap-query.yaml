@@ -2,8 +2,9 @@
 - hosts: vehicle.idir.bcgov
 
   tasks: 
-  - name: check DNS
-    win_whoami:
-    register: command_output
+  - name: Save the result of 'whoami' in 'whoami_out'
+    ansible.windows.win_command: whoami
+    register: whoami_out
+    
   - name: command output
     ansible.builtin.debug:
