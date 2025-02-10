@@ -1,0 +1,7 @@
+---
+- hosts: panga.idir.bcgov
+  tasks: 
+  - name: Run remote PowerShell Script
+    win_shell: powershell.exe -ExecutionPolicy ByPass -File E:/Tidal/futureofworktransfer.ps1
+   
+    register: command_output
