@@ -1,8 +1,8 @@
 ---
 - hosts: panga.idir.bcgov
-
   tasks: 
-  - name: Run remote PowerShell Script
-    win_command: powershell.exe -ExecutionPolicy ByPass -File E:/Tidal/AD_Contacts_Export/CbreExpAnsible.ps1
-    register: command_output
+  - name: Save the result of 'whoami' in 'whoami_out'
+    ansible.windows.win_command: whoami
+    register: whoami_out
+
      
