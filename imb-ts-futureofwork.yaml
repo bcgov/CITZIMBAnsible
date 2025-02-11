@@ -3,5 +3,5 @@
 
   tasks: 
   - name: Run remote PowerShell Script
-    win_shell: powershell.exe -ExecutionPolicy ByPass -File E:/Tidal/futureofworktransfer.ps1
+    win_shell: powershell.exe -ExecutionPolicy ByPass -File E:/Tidal/Futureofwork/futureofworktransfer.ps1
     register: command_output
