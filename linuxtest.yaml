@@ -1,0 +1,9 @@
+ hosts: panga
+  tasks:
+    - name: List contents of /etc
+      ansible.builtin.ls:
+        path: /etc
+      register: etc_contents
+    - name: Print the contents of /etc
+      debug:
+        var: etc_contents.files
