@@ -4,16 +4,23 @@ collections:
 # REQUIRED
 
   - name: servicenow.itsm       # https://galaxy.ansible.com/servicenow/itsm
+    version: '>=2.3.0'
   
 # REFERENCE / POSSIBLY USEFUL
 
 ## GENERAL
 
 #  - name: community.general    # https://galaxy.ansible.com/community/general
+#    version: '>=8.3.0'
 
 ## OS
 
 #  - name: ansible.windows      # https://docs.ansible.com/ansible/latest/collections/ansible/windows/index.html
+#    version: '>=2.2.0'
+
 #  - name: ansible.posix        # https://docs.ansible.com/ansible/latest/collections/ansible/posix/index.html
-  - name: community.windows    # https://galaxy.ansible.com/community/windows
+#    version: '>=1.5.4'
+
+#  - name: community.windows    # https://galaxy.ansible.com/community/windows
+#    version: '>=2.1.0'
 ...
