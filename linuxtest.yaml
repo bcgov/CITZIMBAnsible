@@ -1,9 +1,9 @@
- hosts: panga
+ hosts: guppy.bcgov
   tasks:
-    - name: List contents of /etc
-      ansible.builtin.ls:
-        path: /etc
-      register: etc_contents
-    - name: Print the contents of /etc
+    - name: List contents of 
+      command: ls -l /
+       
+      register: directory_contents
+    - name: Print the contents of /
       debug:
-        var: etc_contents.files
+        var: directory_contents.stdout_lines
