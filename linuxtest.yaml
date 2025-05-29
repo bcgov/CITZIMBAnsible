@@ -1,5 +1,5 @@
 ---
-  - hosts: guppy.bcgov
+  - hosts: pollux.bcgov
  
     tasks:
      - name: List contents of 
