@@ -6,7 +6,7 @@
        ansible.builtin.find:
          paths: /
          file_type: file
-         patterns: *
+         patterns: '*'
          recurse: no
        
      
