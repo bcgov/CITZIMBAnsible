@@ -1,9 +1,11 @@
- hosts: guppy.bcgov
-  tasks:
-    - name: List contents of 
-      command: ls -l /
+---
+  - hosts: guppy.bcgov
+ 
+   tasks:
+     - name: List contents of 
+       command: ls -l /
        
-      register: directory_contents
-    - name: Print the contents of /
-      debug:
-        var: directory_contents.stdout_lines
+       register: directory_contents
+     - name: Print the contents of /
+       debug:
+       var: directory_contents.stdout_lines
