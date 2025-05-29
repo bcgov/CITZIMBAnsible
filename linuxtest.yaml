@@ -3,9 +3,10 @@
  
     tasks:
      - name: List contents of 
-       command: ls -l /
+       ansible.builtin.find:
+         paths: /
+         file_type: file
+         patterns: *
+         recurse: no
        
-       register: directory_contents
-     - name: Print the contents of /
-       debug:
-       var: directory_contents.stdout_lines
+     
