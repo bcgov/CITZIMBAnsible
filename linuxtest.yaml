@@ -1,5 +1,5 @@
 ---
-  - hosts: guppy.bcgov
+  - hosts: virgo.bcgov
  
     tasks:
      - name: List contents of 
