@@ -2,10 +2,8 @@
   - hosts: pollux.bcgov
  
     tasks:
-     - name: Run test script using built in module
-       script: /u1/oracle/tidal/bin/runthis 10
-
-     - name: Run test script using command method
+    
+    - name: Run test script using command method
        command: sh /u1/oracle/tidal/bin/runthis 10
 
        
