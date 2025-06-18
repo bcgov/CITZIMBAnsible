@@ -1,0 +1,7 @@
+---
+  - hosts: pollux.bcgov
+ 
+    tasks:
+    
+     - name: Transfer FA_PERIODS_VW to CBRE SFTP
+       command: sh /u1/oracle/tidal/transferFAviewCBRE IWP CASDW FA_PERIODS_VW
