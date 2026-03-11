@@ -1,7 +1,7 @@
 ---
 
 - name: Submit NRDP check result
-  hosts: vehicle
+  hosts: vehicle.idir.bcgov
   gather_facts: false
 
   vars:
