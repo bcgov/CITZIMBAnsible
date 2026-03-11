@@ -6,7 +6,7 @@
   vars:
     your_api_endpoint: "http://nagios.im.gov.bc.ca/nrdp/"
     your_incoming_webhook: "http://nagios.im.gov.bc.ca/nrdp/"
-    your_token: "S2EBPf7CS4dq8s8vo4YIu7Bv0vfMGeWCTdBigS46Xb7r2UjimdCMKjKrIhZV7RlR"
+    your_token: "mPsNf7ANZfgW"
   
  
      
