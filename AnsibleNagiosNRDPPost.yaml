@@ -1,5 +1,5 @@
 - name: Send NRDP check results
-  hosts: localhost
+  hosts: vehicle.idir.bcgov
   gather_facts: false
 
   vars:
