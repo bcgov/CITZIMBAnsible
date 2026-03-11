@@ -1,31 +1,5 @@
 ---
-- name: GET_and_POST
-  hosts: vehicle.idir.bcgov
-  gather_facts: false
-  any_errors_fatal: true
-  vars:
-    nrdp_url: "http://nagios.im.gov.bc.ca/nrdp/"
-    your_incoming_webhook: "http://nagios.im.gov.bc.ca/nrdp/"
-    nrdp_token: "mPsNf7ANZfgW"
-  
-  tasks:
-    - name: Send NRDP check result
-      ansible.builtin.shell: |
-        curl -X POST \
-          -d 'token={{ nrdp_token }}' \
-          -d 'cmd=submitcheck' \
-          -d 'JSONDATA={"checkresults":[{"hostname":"someserver","servicename":"someservice","state":0,"output":"OK - Disk usage normal"}]}' \
-          '{{ nrdp_url }}'
-      register: nrdp_result
-      changed_when: false
 
-    - name: Show output
-      ansible.builtin.debug:
-        var: nrdp_result.stdout  
-  
- 
- 
- ---
 - name: Submit NRDP check result
   hosts: localhost
   gather_facts: false
