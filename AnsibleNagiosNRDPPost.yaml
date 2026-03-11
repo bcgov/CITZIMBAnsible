@@ -6,7 +6,7 @@
   vars:
     nrdp_url: "http://nagios.im.gov.bc.ca/nrdp/"
     your_incoming_webhook: "http://nagios.im.gov.bc.ca/nrdp/"
-    your_token: "mPsNf7ANZfgW"
+    nrdp_token: "mPsNf7ANZfgW"
   
   tasks:
     - name: Send NRDP check result
