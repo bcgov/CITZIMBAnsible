@@ -1,45 +1,40 @@
----
-
-- name: Submit NRDP check result
-  hosts: vehicle.idir.bcgov
+- name: Send NRDP check results
+  hosts: localhost
   gather_facts: false
 
   vars:
     nrdp_url: "http://nagios.im.gov.bc.ca/nrdp/"
-    your_incoming_webhook: "http://nagios.im.gov.bc.ca/nrdp/"
     nrdp_token: "mPsNf7ANZfgW"
-    
-    nrdp_jsondata: >-
-      {
-        "checkresults": [
-          {
-            "hostname": "somehost",
-            "servicename": "someservice",
-            "state": 0,
-            "output": "OK - Disk usage normal"
-          }
-        ]
-      }
 
-    tasks:
-    - name: Submit raw JSON request
-      ansible.builtin.uri:
+    nrdp_json:
+      checkresults:
+        - checkresult:
+            type: host
+          hostname: somehost
+          state: "0"
+          output: "Everything looks okay! | perfdata=1;"
+
+        - checkresult:
+            type: service
+          hostname: somehost
+          servicename: someservice
+          state: "1"
+          output: "WARNING: Danger Will Robinson! | perfdata=1;"
+
+  tasks:
+
+    - name: Submit NRDP check results
+      uri:
         url: "{{ nrdp_url }}"
         method: POST
-        body_format: json
+        body_format: form-urlencoded
         body:
+          cmd: submitcheck
           token: "{{ nrdp_token }}"
-          cmd: "submitcheck"
-          checkresults:
-            - hostname: "somehost"
-              servicename: "someservice"
-              state: 0
-              output: "OK - Disk usage normal"
+          json: "{{ nrdp_json | to_json }}"
         validate_certs: false
         return_content: true
       register: nrdp_result
 
-    - name: Show NRDP response
-      ansible.builtin.debug:
+    - debug:
         var: nrdp_result.content
-    
