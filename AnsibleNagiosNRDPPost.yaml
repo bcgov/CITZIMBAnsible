@@ -21,7 +21,7 @@
         ]
       }
 
-   tasks:
+    tasks:
     - name: Submit raw JSON request
       ansible.builtin.uri:
         url: "{{ nrdp_url }}"
