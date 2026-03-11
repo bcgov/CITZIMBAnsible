@@ -1,7 +1,7 @@
 ---
 
 - name: Submit NRDP check result
-  hosts: localhost
+  hosts: vehicle
   gather_facts: false
 
   vars:
@@ -21,16 +21,20 @@
         ]
       }
 
-  tasks:
-    - name: Submit check result to NRDP
+   tasks:
+    - name: Submit raw JSON request
       ansible.builtin.uri:
         url: "{{ nrdp_url }}"
         method: POST
-        body_format: form-urlencoded
+        body_format: json
         body:
           token: "{{ nrdp_token }}"
           cmd: "submitcheck"
-          JSONDATA: "{{ nrdp_jsondata }}"
+          checkresults:
+            - hostname: "server1"
+              servicename: "Disk Space"
+              state: 0
+              output: "OK - Disk usage normal"
         validate_certs: false
         return_content: true
       register: nrdp_result
@@ -38,6 +42,4 @@
     - name: Show NRDP response
       ansible.builtin.debug:
         var: nrdp_result.content
-     
     
- 
