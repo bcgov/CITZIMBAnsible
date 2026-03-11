@@ -31,8 +31,8 @@
           token: "{{ nrdp_token }}"
           cmd: "submitcheck"
           checkresults:
-            - hostname: "server1"
-              servicename: "Disk Space"
+            - hostname: "somehost"
+              servicename: "someservice"
               state: 0
               output: "OK - Disk usage normal"
         validate_certs: false
