@@ -24,6 +24,46 @@
         var: nrdp_result.stdout  
   
  
+ 
+ ---
+- name: Submit NRDP check result
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    nrdp_url: "http://nagios.im.gov.bc.ca/nrdp/"
+    your_incoming_webhook: "http://nagios.im.gov.bc.ca/nrdp/"
+    nrdp_token: "mPsNf7ANZfgW"
+    
+    nrdp_jsondata: >-
+      {
+        "checkresults": [
+          {
+            "hostname": "somehost",
+            "servicename": "someservice",
+            "state": 0,
+            "output": "OK - Disk usage normal"
+          }
+        ]
+      }
+
+  tasks:
+    - name: Submit check result to NRDP
+      ansible.builtin.uri:
+        url: "{{ nrdp_url }}"
+        method: POST
+        body_format: form-urlencoded
+        body:
+          token: "{{ nrdp_token }}"
+          cmd: "submitcheck"
+          JSONDATA: "{{ nrdp_jsondata }}"
+        validate_certs: false
+        return_content: true
+      register: nrdp_result
+
+    - name: Show NRDP response
+      ansible.builtin.debug:
+        var: nrdp_result.content
      
     
  
