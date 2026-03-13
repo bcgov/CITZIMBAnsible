@@ -27,14 +27,15 @@
       ansible.windows.win_uri:
         url: "{{ nrdp_url }}"
         method: POST
-        body_format: form-urlencoded
-        body:
-          cmd: submitcheck
-          token: "{{ nrdp_token }}"
-          json: "{{ nrdp_json | to_json }}"
+        content_type: "application/x-www-form-urlencoded"
+        body: "cmd=submitcheck&token={{ nrdp_token }}&json={{ nrdp_json | to_json | urlencode }}"
         return_content: true
       register: nrdp_result
 
-    - name: Show full response
+    - name: Show NRDP response body
       ansible.builtin.debug:
-        var: nrdp_result
+        var: nrdp_result.content
+
+    - name: Show HTTP status
+      ansible.builtin.debug:
+        var: nrdp_result.status_code
